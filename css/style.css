@@ -1,0 +1,311 @@
+:root {
+    --main-color :rgb(20 51 108);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 5000px;
+}
+/*Start Landing Box */
+.setting-box {
+    position: fixed;
+    background-color: #EEE;
+    width: 350px;
+    min-height: 100vh;
+    padding: 30px 20px;
+    top: 0;
+    left: -350px;
+    z-index: 10;
+    transition: 0.3s;
+}
+.setting-box.opened {
+    left: 0;
+}
+.setting-box .toggle-container{
+    position: absolute;
+    right: -50px;
+    top: 150px;
+    color: #EEE;
+    font-size: 24px;
+    border: 1px solid #EEE;
+    border-radius: 30%;
+    cursor: pointer;
+    text-align: center;
+}
+.setting-box .toggle-container i {
+    padding: 8px 10px;
+    width: 47px;
+}
+.setting-box .option-box {
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(217, 222, 222);
+    text-align: center;
+    border-radius: 5px;
+}
+.setting-box .option-box h4{
+    font-size: 20px;
+    color: #666;
+    margin: 10px;
+} 
+.setting-box .option-box .colors-list li{
+    width: 35px;
+    height: 35px;
+    background-color: yellowgreen;
+    border-radius: 30%;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+    outline: 3px solid transparent;
+} 
+.setting-box .option-box .colors-list li.active {
+    outline: 5px solid #EEE;
+}
+.setting-box .option-box .colors-list li:first-child {
+    background-color: rgb(20 51 108);
+}
+.setting-box .option-box .colors-list li:nth-child(2) {
+    background-color: rgb(75, 206, 63);
+}
+.setting-box .option-box .colors-list li:nth-child(3) {
+    background-color: rgb(0, 255, 255);
+}
+.setting-box .option-box .colors-list li:nth-child(4) {
+    background-color: rgb(240, 123, 22);
+}
+.setting-box .option-box .colors-list li:nth-child(5) {
+    background-color: rgb(211, 73, 249);
+}
+.setting-box .random-backgrounds .yes,
+.setting-box .random-backgrounds .no  {
+    width: 60px;
+    padding: 5px 15px;
+    background-color: rgb(20 51 108);
+    margin: 5px 2px 10px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.setting-box .random-backgrounds span.active {
+    opacity: 1;
+}
+.setting-box .option-box .yes {
+    background-color: rgb(20 51 108);
+}
+.setting-box .option-box .no {
+    background-color: rgb(163, 3, 3);
+}
+/*End Landing Box */
+/*Start Landing */
+.landing {
+    background-color: var(--main-color);
+    background-image: url('../images/bg5.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.cube-container .cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #D7D4E4;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite;
+    z-index: 2;
+  }
+.cube-container .cube:nth-child(2n) {
+    border-color: #FFF ;
+}
+.cube-container .cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+}
+.cube-container .cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 50vh;
+}
+.cube-container .cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+}
+.cube-container .cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+}
+.cube-container .cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+}
+.landing nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    padding-left: 150px;
+    padding-right: 150px;
+    z-index: 2;
+}
+.landing .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    height: 52px;
+}
+.nav-menu .logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #EEE;
+    width: 300px;
+    cursor: pointer;
+}
+.landing .nav-menu .links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+.landing .nav-menu .links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #EEE;
+    font-size: 22px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.landing .nav-menu .links a.active,
+.landing .nav-menu .links a:hover {
+    color: var(--main-color);
+    font-size: 24px;
+}
+nav .connexion {
+    margin-right: 50px;
+    margin-left: 50px;
+    display: flex;
+}
+nav .connexion .btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+nav .connexion .sign-up {
+    color: #EEE;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+nav .connexion .log-in {
+    color: #EEE;
+    background-color: transparent;
+    border: 1px solid #EEE;
+}
+.landing .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(78, 78, 78, 0.772);
+    z-index: 1;
+}
+.landig-content {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    z-index: 2;
+}
+.landig-content .landing-text {
+    flex: 1;
+    max-width: 800px;
+}
+.landig-content .landing-text h2 {
+  color: #EEE;
+  font-size: 50px;
+  font-weight: 700;
+}
+.landig-content .landing-text p {
+    color: #EEE;
+    font-size: 22px;
+    line-height: 2;
+    font-weight: 200;
+    max-width: 90%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    letter-spacing: 0.5px;
+}
+.landig-content .landing-text button {
+    color: #EEE;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 25px 50px;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    width: 240px;
+    cursor: pointer;
+}
+.landig-content .landing-image {
+    flex: 1;
+    max-width: 800px;
+}
+.landing-image img {
+    max-width: 100%;
+    filter: hue-rotate(280deg) saturate(2) grayscale(0.6);
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes cube {
+from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+}
+to {
+    transform: scale(8) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+}
+}
+
+
