@@ -71,7 +71,7 @@ const changeBackground = () => {
     backgroundInterval = setInterval(() => {
         let randomNumber = Math.floor(Math.random() * tab.length);
         landingDOM.style.backgroundImage = `url('../images/bg${randomNumber}.jpg')`;
-    }, 2000);
+    }, 8000);
 }
 
 // Set background setting from local storage 
@@ -89,10 +89,19 @@ const backgroundFromStorege = () => {
         clearInterval(backgroundInterval);
     }
 }
-
 backgroundFromStorege();
 
+//Handle bar menu function for medium screens
+barMenu = document.querySelector('.nav-menu .bar-menu');
+barMenu.addEventListener('click', () => {
+    document.querySelector('.landing .nav-menu .links').classList.toggle('active-bar');
+})
 
-
+document.addEventListener('click', (e) =>{
+    if (!e.target.closest('.nav-menu')) {
+        document.querySelector('.landing .nav-menu .links').classList.remove('active-bar');        
+        console.log('ok');
+    }
+})
 
 
