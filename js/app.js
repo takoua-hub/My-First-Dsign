@@ -96,11 +96,22 @@ barMenu = document.querySelector('.nav-menu .bar-menu');
 barMenu.addEventListener('click', () => {
     document.querySelector('.landing .nav-menu .links').classList.toggle('active-bar');
 })
-
 document.addEventListener('click', (e) =>{
     if (!e.target.closest('.nav-menu')) {
         document.querySelector('.landing .nav-menu .links').classList.remove('active-bar');        
         console.log('ok');
+    }
+})
+
+// Animate skills progress in Skills section
+
+skillProgSpans = document.querySelectorAll('.skill-box .skill-progress span')
+window.addEventListener('scroll', () => {
+    if (window.scrollY > document.querySelector('.skills').offsetTop - 50 ) {
+        skillProgSpans.forEach(span => {
+            span.style.width = span.dataset.progress ;
+            span.closest('.skills .skill-box').setAttribute('data-after', span.dataset.progress);
+        })
     }
 })
 
