@@ -99,7 +99,6 @@ barMenu.addEventListener('click', () => {
 document.addEventListener('click', (e) =>{
     if (!e.target.closest('.nav-menu')) {
         document.querySelector('.landing .nav-menu .links').classList.remove('active-bar');        
-        console.log('ok');
     }
 })
 
@@ -114,5 +113,62 @@ window.addEventListener('scroll', () => {
         })
     }
 })
+
+
+//Create popup with the image
+let myGalleryImages = document.querySelectorAll('.gallery .images-box img');
+const createGallery = () => {
+    myGalleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            let alt;
+            popupContainer = document.createElement('div');
+            popupContainer.classList.add('popup-container');
+            document.body.append(popupContainer);
+            if (img.alt) {
+                alt = img.alt ;
+            } else {
+                alt = 'My Image'
+            }
+            document.querySelector('.popup-container').innerHTML= `
+            <div class="gallery-overlay">
+                <div class="popup">
+                    <i class="fa-solid fa-xmark close"></i>
+                    <h3 class="heading">${alt}<h3>
+                    <img src="${img.getAttribute('src')}" alt="${alt}">
+                </div>
+            </div>
+            ` ; 
+        })
+    })
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('gallery-overlay') || e.target.classList.contains('close')) {
+            document.querySelector('.popup-container').remove();
+        }
+    })
+}
+createGallery();
+
+// Handle Bullets
+scrollToSection('.nav-bullets .bullet');
+
+function scrollToSection (selector) {
+    const allClickedElements = document.querySelectorAll(selector);
+    console.log(allClickedElements);
+
+    allClickedElements.forEach(element => {
+        element.addEventListener('click', (e) => {
+            e.preventDefault();
+            let section = e.target.dataset.section;
+            console.log(section);
+            document.querySelector(`.${section}`).scrollIntoView({
+                behavior: 'smooth'
+            })
+        })
+    });
+}
+
+
+//Menu Smooth Scrooling
+scrollToSection('nav .nav-menu .links a');
 
 
